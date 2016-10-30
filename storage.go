@@ -150,17 +150,6 @@ func (svc *StorageServiceOp) DeleteVolume(id string) (*Response, error) {
 	return svc.client.Do(req, nil)
 }
 
-// Snapshot represents a Digital Ocean block store snapshot.
-type Snapshot struct {
-	ID            string    `json:"id"`
-	VolumeID      string    `json:"volume_id"`
-	Region        *Region   `json:"region"`
-	Name          string    `json:"name"`
-	SizeGigaBytes int64     `json:"size_gigabytes"`
-	Description   string    `json:"description"`
-	CreatedAt     time.Time `json:"created_at"`
-}
-
 type storageSnapsRoot struct {
 	Snapshots []Snapshot `json:"snapshots"`
 	Links     *Links     `json:"links"`
